@@ -6,7 +6,7 @@ import com.isima.zz2.simu.system.Systeme;
  * Created by Mathieu on 16/11/2017.
  */
 public class Main {
-    public static int main(String[] args) {
+    public static void main(String[] args) {
         int dia = 1;
         int treatmentTime = 4;
         int duree = 10000;
@@ -14,7 +14,5 @@ public class Main {
 
         Systeme systeme = new Systeme(dia, treatmentTime, duree, queueSize);
         systeme.simulate();
-
-        return 1;
     }
 }

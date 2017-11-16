@@ -4,6 +4,7 @@ import com.isima.zz2.simu.queue.exception.QueueEmptyException;
 import com.isima.zz2.simu.queue.exception.QueueFullException;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -25,7 +26,8 @@ public class Queue<T> {
     }
 
     public Queue(int queueSize) {
-        objects = new ArrayList<>(queueSize);
+        this.capacity = queueSize;
+        objects = new ArrayList<>(Collections.nCopies(queueSize + 1, null));
     }
 
     public boolean isFull() {

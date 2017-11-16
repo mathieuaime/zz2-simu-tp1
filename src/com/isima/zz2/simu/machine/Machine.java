@@ -36,8 +36,8 @@ public class Machine {
         state = false;
     }
 
-    public void push(int date, Piece p) {
-        p.setServorDate(date);
+    public void push(int date, Piece piece) {
+        piece.setServorDate(date);
         this.piece = piece;
         state = true;
         dpe = date + treatmentTime;
