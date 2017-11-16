@@ -15,7 +15,7 @@ public class Machine {
 
     public Machine(int treatmentTime) {
         this.state = false;
-        this.dpe = 999999;
+        this.dpe = Integer.MAX_VALUE;
         this.piece = null;
         this.treatmentTime = treatmentTime;
     }
@@ -55,7 +55,7 @@ public class Machine {
             push(date, p);
         } catch (QueueEmptyException e) {
             state = false;
-            dpe = 9999999;
+            dpe = Integer.MAX_VALUE;
         }
     }
 }
