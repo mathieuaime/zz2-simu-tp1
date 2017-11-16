@@ -30,8 +30,11 @@ public class Systeme {
         return input.getDpe() < machine.getDpe() ? ACTION.INPUT : ACTION.MACHINE;
     }
 
-    public void displayStat() {
-        System.out.println("\nTemps moyen de séjour dans le système : " + output.avgSystemTime()
+    private void displayStat() {
+        System.out.println();
+        System.out.println("\nQueue : " +  queue.toString()
+                + "\nPiece dans la machine : " + (machine.getPiece() != null ? machine.getPiece().getNumber() : "Pas de pièces")
+                + "\nTemps moyen de séjour dans le système : " + output.avgSystemTime()
                 + "\nTemps moyen de séjour dans la file : " + output.avgQueueTime()
                 + "\nTemps moyen de séjour dans la machine : " + output.avgServorTime()
                 + "\nNombre de pièces créées : " + input.getCptr()
@@ -57,6 +60,7 @@ public class Systeme {
             }
 
             if (date % 100 == 0) {
+
                 displayStat();
             }
         }

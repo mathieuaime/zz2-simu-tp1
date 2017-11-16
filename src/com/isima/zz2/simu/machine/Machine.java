@@ -8,13 +8,13 @@ import com.isima.zz2.simu.queue.exception.QueueEmptyException;
  * Created by Mathieu on 16/11/2017.
  */
 public class Machine {
-    private boolean state;
+    private boolean activate;
     private int dpe;
     private int treatmentTime;
     private Piece piece;
 
     public Machine(int treatmentTime) {
-        this.state = false;
+        this.activate = false;
         this.dpe = Integer.MAX_VALUE;
         this.piece = null;
         this.treatmentTime = treatmentTime;
@@ -24,37 +24,32 @@ public class Machine {
         return dpe;
     }
 
-    public boolean isState() {
-        return state;
+    public Piece getPiece() {
+        return piece;
     }
 
-    public void activate() {
-        state = true;
-    }
-
-    public void desactivate() {
-        state = false;
+    public boolean isActivate() {
+        return activate;
     }
 
     public void push(int date, Piece piece) {
         piece.setServorDate(date);
         this.piece = piece;
-        state = true;
+        activate = true;
         dpe = date + treatmentTime;
     }
 
     public void action(int date, Queue<Piece> queue, Output output) {
-        if (state) {
+        if (activate) {
             piece.setExitDate(date);
             output.accept(piece);
-            this.piece = null;
         }
 
         try {
             Piece p = queue.pop();
             push(date, p);
         } catch (QueueEmptyException e) {
-            state = false;
+            activate = false;
             dpe = Integer.MAX_VALUE;
         }
     }

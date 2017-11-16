@@ -25,7 +25,7 @@ public class Input {
         if (queue.isFull()) {
             p.setExitDate(date);
             output.reject(p);
-        } else if (machine.isState()) {
+        } else if (machine.isActivate()) {
             queue.push(p);
         } else {
             machine.push(date, p);

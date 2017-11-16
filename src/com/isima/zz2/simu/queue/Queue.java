@@ -21,10 +21,6 @@ public class Queue<T> {
 
     private List<T> objects;
 
-    public Queue() {
-        this(10);
-    }
-
     public Queue(int queueSize) {
         this.capacity = queueSize;
         objects = new ArrayList<>(Collections.nCopies(queueSize + 1, null));
@@ -62,7 +58,8 @@ public class Queue<T> {
     @Override
     public String toString() {
         return "Queue{" +
-                "objects=" + objects +
+                "size=" + size +
+                ", objects=" + objects +
                 '}';
     }
 }

@@ -6,6 +6,10 @@ package com.isima.zz2.simu.model;
 public class Piece {
     private static int cptr = 1;
 
+    public Piece() {
+        this.number = cptr++;
+    }
+
     private int number;
 
     private int entryDate;
