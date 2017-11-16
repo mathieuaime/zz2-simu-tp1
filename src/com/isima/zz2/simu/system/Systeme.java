@@ -1,10 +1,10 @@
-package com.isima.zz2.simu.tp1.system;
+package com.isima.zz2.simu.system;
 
-import com.isima.zz2.simu.tp1.machine.Input;
-import com.isima.zz2.simu.tp1.machine.Machine;
-import com.isima.zz2.simu.tp1.machine.Output;
-import com.isima.zz2.simu.tp1.model.Piece;
-import com.isima.zz2.simu.tp1.queue.Queue;
+import com.isima.zz2.simu.machine.Input;
+import com.isima.zz2.simu.machine.Machine;
+import com.isima.zz2.simu.machine.Output;
+import com.isima.zz2.simu.model.Piece;
+import com.isima.zz2.simu.queue.Queue;
 
 /**
  * Created by Mathieu on 16/11/2017.

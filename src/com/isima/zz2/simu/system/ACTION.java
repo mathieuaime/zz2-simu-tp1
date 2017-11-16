@@ -1,4 +1,4 @@
-package com.isima.zz2.simu.tp1.system;
+package com.isima.zz2.simu.system;
 
 /**
  * Created by Mathieu on 16/11/2017.

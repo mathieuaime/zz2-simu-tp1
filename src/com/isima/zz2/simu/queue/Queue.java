@@ -1,7 +1,7 @@
-package com.isima.zz2.simu.tp1.queue;
+package com.isima.zz2.simu.queue;
 
-import com.isima.zz2.simu.tp1.queue.exception.QueueEmptyException;
-import com.isima.zz2.simu.tp1.queue.exception.QueueFullException;
+import com.isima.zz2.simu.queue.exception.QueueEmptyException;
+import com.isima.zz2.simu.queue.exception.QueueFullException;
 
 import java.util.ArrayList;
 import java.util.List;

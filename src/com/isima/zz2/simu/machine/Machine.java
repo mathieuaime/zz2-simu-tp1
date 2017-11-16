@@ -1,8 +1,8 @@
-package com.isima.zz2.simu.tp1.machine;
+package com.isima.zz2.simu.machine;
 
-import com.isima.zz2.simu.tp1.model.Piece;
-import com.isima.zz2.simu.tp1.queue.Queue;
-import com.isima.zz2.simu.tp1.queue.exception.QueueEmptyException;
+import com.isima.zz2.simu.model.Piece;
+import com.isima.zz2.simu.queue.Queue;
+import com.isima.zz2.simu.queue.exception.QueueEmptyException;
 
 /**
  * Created by Mathieu on 16/11/2017.

@@ -1,6 +1,6 @@
-package com.isima.zz2.simu.tp1.machine;
+package com.isima.zz2.simu.machine;
 
-import com.isima.zz2.simu.tp1.model.Piece;
+import com.isima.zz2.simu.model.Piece;
 
 import java.util.ArrayList;
 import java.util.List;

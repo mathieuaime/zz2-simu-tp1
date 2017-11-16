@@ -1,6 +1,6 @@
-package com.isima.zz2.simu.tp1.cli;
+package com.isima.zz2.simu.cli;
 
-import com.isima.zz2.simu.tp1.system.Systeme;
+import com.isima.zz2.simu.system.Systeme;
 
 /**
  * Created by Mathieu on 16/11/2017.
