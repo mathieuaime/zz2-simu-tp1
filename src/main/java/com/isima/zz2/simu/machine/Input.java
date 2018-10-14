@@ -2,13 +2,19 @@ package com.isima.zz2.simu.machine;
 
 import com.isima.zz2.simu.model.Piece;
 import com.isima.zz2.simu.queue.Queue;
+import lombok.Getter;
 
 /**
+ * Input.
+ * <p>
  * Created by Mathieu on 16/11/2017.
  */
 public class Input {
-    private int dia;
+    private final int dia;
+
+    @Getter
     private int dpe;
+    @Getter
     private int cptr;
 
     public Input(int dia) {
@@ -32,13 +38,5 @@ public class Input {
         }
 
         dpe = date + dia;
-    }
-
-    public int getDpe() {
-        return dpe;
-    }
-
-    public int getCptr() {
-        return cptr;
     }
 }

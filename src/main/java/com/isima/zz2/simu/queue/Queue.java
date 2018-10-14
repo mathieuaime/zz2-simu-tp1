@@ -2,14 +2,18 @@ package com.isima.zz2.simu.queue;
 
 import com.isima.zz2.simu.queue.exception.QueueEmptyException;
 import com.isima.zz2.simu.queue.exception.QueueFullException;
+import lombok.ToString;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 /**
+ * Template queue.
+ * <p>
  * Created by Mathieu on 16/11/2017.
  */
+@ToString
 public class Queue<T> {
     private int start;
 
@@ -27,10 +31,10 @@ public class Queue<T> {
     }
 
     public boolean isFull() {
-        return ((end % capacity) + 1 == start);
+        return (end + 1) % capacity == start;
     }
 
-    public boolean isEmpty() {
+    boolean isEmpty() {
         return start == end;
     }
 
@@ -53,13 +57,5 @@ public class Queue<T> {
         } else {
             throw new QueueEmptyException("Queue is empty");
         }
-    }
-
-    @Override
-    public String toString() {
-        return "Queue{" +
-                "size=" + size +
-                ", objects=" + objects +
-                '}';
     }
 }

@@ -3,14 +3,21 @@ package com.isima.zz2.simu.machine;
 import com.isima.zz2.simu.model.Piece;
 import com.isima.zz2.simu.queue.Queue;
 import com.isima.zz2.simu.queue.exception.QueueEmptyException;
+import lombok.Getter;
 
 /**
+ * Machine.
+ * <p>
  * Created by Mathieu on 16/11/2017.
  */
 public class Machine {
+    private final int treatmentTime;
+
+    @Getter
     private boolean activate;
+    @Getter
     private int dpe;
-    private int treatmentTime;
+    @Getter
     private Piece piece;
 
     public Machine(int treatmentTime) {
@@ -20,19 +27,7 @@ public class Machine {
         this.treatmentTime = treatmentTime;
     }
 
-    public int getDpe() {
-        return dpe;
-    }
-
-    public Piece getPiece() {
-        return piece;
-    }
-
-    public boolean isActivate() {
-        return activate;
-    }
-
-    public void push(int date, Piece piece) {
+    void push(int date, Piece piece) {
         piece.setServorDate(date);
         this.piece = piece;
         activate = true;
@@ -49,6 +44,7 @@ public class Machine {
             Piece p = queue.pop();
             push(date, p);
         } catch (QueueEmptyException e) {
+            piece = null;
             activate = false;
             dpe = Integer.MAX_VALUE;
         }

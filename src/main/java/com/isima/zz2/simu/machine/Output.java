@@ -7,10 +7,11 @@ import java.util.List;
 import java.util.function.ToDoubleFunction;
 
 /**
+ * Output.
+ * <p>
  * Created by Mathieu on 16/11/2017.
  */
 public class Output {
-
     private List<Piece> accepts;
     private List<Piece> rejects;
 
@@ -19,11 +20,11 @@ public class Output {
         this.rejects = new ArrayList<>();
     }
 
-    public void accept(Piece p) {
+    void accept(Piece p) {
         accepts.add(p);
     }
 
-    public void reject(Piece p) {
+    void reject(Piece p) {
         rejects.add(p);
     }
 

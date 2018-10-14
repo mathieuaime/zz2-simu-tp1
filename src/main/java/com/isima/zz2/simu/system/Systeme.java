@@ -5,10 +5,14 @@ import com.isima.zz2.simu.machine.Machine;
 import com.isima.zz2.simu.machine.Output;
 import com.isima.zz2.simu.model.Piece;
 import com.isima.zz2.simu.queue.Queue;
+import lombok.extern.java.Log;
 
 /**
+ * Systeme.
+ * <p>
  * Created by Mathieu on 16/11/2017.
  */
+@Log
 public class Systeme {
     private int duree;
 
@@ -31,9 +35,8 @@ public class Systeme {
     }
 
     private void displayStat() {
-        System.out.println();
-        System.out.println("\nQueue : " +  queue.toString()
-                + "\nPiece dans la machine : " + (machine.getPiece() != null ? machine.getPiece().getNumber() : "Pas de pièces")
+        log.info("\nQueue : " + queue.toString()
+                + "\nPiece dans la machine : " + (machine.getPiece() != null ? machine.getPiece() : "Pas de pièces")
                 + "\nTemps moyen de séjour dans le système : " + output.avgSystemTime()
                 + "\nTemps moyen de séjour dans la file : " + output.avgQueueTime()
                 + "\nTemps moyen de séjour dans la machine : " + output.avgServorTime()
@@ -46,23 +49,30 @@ public class Systeme {
         int date = 0;
 
         while (date < duree) {
-            switch (nextAction()) {
-                case INPUT:
-                    date = input.getDpe();
-                    input.action(date, queue, machine, output);
-                    break;
-                case MACHINE:
-                    date = machine.getDpe();
-                    machine.action(date, queue, output);
-                    break;
-                default:
-                    break;
-            }
-
-            if (date % 100 == 0) {
-
-                displayStat();
-            }
+            date = executeAction(date);
         }
+    }
+
+    int executeAction(int date) {
+        int newDate = date;
+
+        switch (nextAction()) {
+            case INPUT:
+                newDate = input.getDpe();
+                input.action(newDate, queue, machine, output);
+                break;
+            case MACHINE:
+                newDate = machine.getDpe();
+                machine.action(newDate, queue, output);
+                break;
+            default:
+                break;
+        }
+
+        if (date % 100 == 0) {
+            displayStat();
+        }
+
+        return newDate;
     }
 }
